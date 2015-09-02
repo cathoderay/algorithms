@@ -8,3 +8,7 @@ def insertion_sort(l):
             p -= 1
     return l
 
+
+if __name__ == '__main__':
+    l = [5, 1, 3, 4, 1]
+    print insertion_sort(l)

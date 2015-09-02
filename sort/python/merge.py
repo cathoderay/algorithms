@@ -18,3 +18,7 @@ def merge_sort(l):
 
     return merge(le, ri)
 
+
+if __name__ == '__main__':
+    l = [5, 1, 3, 4, 1]
+    print merge_sort(l)
