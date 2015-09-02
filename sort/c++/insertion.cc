@@ -9,7 +9,7 @@ void insertion_sort(int v[], int length) {
             tmp = v[p];
             v[p] = v[p - 1];
             v[p - 1] = tmp;
-            p -= 1;
+            p--;
         }
     }
 }
