@@ -5,12 +5,9 @@ void selection_sort(int v[], int length) {
     int min, tmp;
     for(int i = 0; i < length; i++) {
         min = i;
-        for(int j = i + 1; j < length; j++) {
+        for(int j = i + 1; j < length; j++)
             if (v[j] < v[min])
-                min = j
-            else
-                break;
-        }
+                min = j;
         tmp = v[min];
         v[min] = v[i];
         v[i] = tmp;
