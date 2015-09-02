@@ -1,23 +1,26 @@
 #include <iostream>
 
 
-void insertion_sort(int v[], int length) {
-    int tmp, p;
-    for(int i = 1; i < length; i++) {
-        p = i;
-        while (p > 0 && v[p] < v[p - 1]) {
-            tmp = v[p];
-            v[p] = v[p - 1];
-            v[p - 1] = tmp;
-            p -= 1;
+void selection_sort(int v[], int length) {
+    int min, tmp;
+    for(int i = 0; i < length; i++) {
+        min = i;
+        for(int j = i + 1; j < length; j++) {
+            if (v[j] < v[min])
+                min = j
+            else
+                break;
         }
+        tmp = v[min];
+        v[min] = v[i];
+        v[i] = tmp;
     }
 }
 
 int main() {
     int v[] = {5, 1, 3, 4, 1};
 
-    insertion_sort(v, 5);
+    selection_sort(v, 5);
 
     //testing
     for(int i = 0; i < 5; i++) std::cout << v[i];
