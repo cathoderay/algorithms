@@ -12,7 +12,7 @@ def merge(l, r):
 
 def merge_sort(l):
     if len(l) == 1: return l
-    mid = len(l)/2
+    mid = int(len(l)/2)
     le = merge_sort(l[:mid])
     ri = merge_sort(l[mid:])
 
@@ -21,4 +21,4 @@ def merge_sort(l):
 
 if __name__ == '__main__':
     l = [5, 1, 3, 4, 1]
-    print merge_sort(l)
+    print(merge_sort(l))

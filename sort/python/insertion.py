@@ -1,7 +1,7 @@
 
 
 def insertion_sort(l):
-    for j in xrange(1, len(l)):
+    for j in range(1, len(l)):
         k = l[j]
         i = j - 1
         while i > -1 and l[i] > k:
@@ -13,4 +13,4 @@ def insertion_sort(l):
 
 if __name__ == '__main__':
     l = [5, 1, 3, 4, 1]
-    print insertion_sort(l)
+    print(insertion_sort(l))

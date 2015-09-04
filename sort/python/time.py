@@ -2,9 +2,9 @@ import time
 import timeit
 import random
 
-from selection import selection_sort
-from insertion import insertion_sort
-from merge import merge_sort 
+from selection import *
+from insertion import *
+from merge import *
 
 
 strategies = [selection_sort, 
@@ -15,13 +15,14 @@ strategies = [selection_sort,
 ns = [10**i for i in range(1, 6)]
 
 for n in ns:
-    l = range(n)
+    l = list(range(n))
     random.shuffle(l)
     
     for s in strategies:
-        print s.__name__, 
-        print n, 
-        x = l[:]
-        print timeit.timeit((lambda: s(x)), number=3)
-    print "-"*50
+        print(s.__name__, 
+              n, 
+              timeit.timeit((lambda: s(l[:])), number=1))
+
+
+    print("-"*50)
 
