@@ -1,11 +1,13 @@
 
 
 def insertion_sort(l):
-    for i in xrange(1, len(l)):
-        p = i
-        while p > 0 and l[p] < l[p - 1]:
-            l[p], l[p - 1] = l[p - 1], l[p]
-            p -= 1
+    for j in xrange(1, len(l)):
+        k = l[j]
+        i = j - 1
+        while i > -1 and l[i] > k:
+            l[i + 1] = l[i] 
+            i -= 1
+        l[i + 1] = k
     return l
 
 
