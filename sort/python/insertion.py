@@ -8,9 +8,9 @@ def insertion_sort(l):
             l[i + 1] = l[i] 
             i -= 1
         l[i + 1] = k
-    return l
 
 
 if __name__ == '__main__':
     l = [5, 1, 3, 4, 1]
-    print(insertion_sort(l))
+    insertion_sort(l)
+    print(l)
