@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 
 
 void insertion_sort(int v[], int length) {
@@ -21,6 +23,17 @@ int main() {
 
     //testing
     for(int i = 0; i < 5; i++) std::cout << v[i];
+
+
+    int k = 100000;
+    int t[k];
+    srand(time(NULL));
+    for(int i = 0; i < k; i++)
+        t[k] = int(rand()*k);
+
+    clock_t start = clock();
+    insertion_sort(t, k);
+    std::cout << (clock() - start) << '\n'; 
 
     return 0;
 }

@@ -12,7 +12,7 @@ strategies = [selection_sort,
               merge_sort]
 
 
-ns = [10**i for i in range(1, 6)]
+ns = [10**i for i in range(1, 5)]
 
 for n in ns:
     l = list(range(n))
