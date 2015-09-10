@@ -1,24 +1,30 @@
 
 
-def merge(l, r):
-    s = []
-    while l and r:
-        if l[0] <= r[0]:
-            s.append(l.pop(0))
+def merge(a, l, r):
+    i = lp = rp = 0
+    while lp < len(l) and rp < len(r):
+        if l[lp] <= r[rp]:
+            a[i] = l[lp]
+            lp += 1
         else:
-            s.append(r.pop(0))
-    return s + r if not l else s + l
+            a[i] = r[rp]
+            rp += 1
+        i += 1
+    a[i:] = l[lp:] if lp < len(l) else r[rp:]
+    return a
 
 
-def merge_sort(l):
-    if len(l) == 1: return l
-    mid = int(len(l)/2)
-    le = merge_sort(l[:mid])
-    ri = merge_sort(l[mid:])
+def merge_sort(a):
+    if len(a) == 1: return a
 
-    return merge(le, ri)
+    mid = len(a)//2
+    l = merge_sort(a[:mid])
+    r = merge_sort(a[mid:])
+
+    return merge(a, l, r)
 
 
 if __name__ == '__main__':
     l = [5, 1, 3, 4, 1]
-    print(merge_sort(l))
+    merge_sort(l)
+    print(l)
