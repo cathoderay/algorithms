@@ -18,7 +18,7 @@ void time() {
 
         std::cout << n << ',';
         std::cout << timeit(insertion, a, n) << ',';
-        std::cout << timeit(selection, a, n) << '\n';
+        std::cout << timeit(selection, b, n) << '\n';
     }
 }
 
