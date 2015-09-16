@@ -4,12 +4,6 @@
 #include <time.h>
 
 
-void shuffle(int *a, int size) {   
-    for(int i = 0; i < size; i++)
-        a[i] = rand()%size;
-}
-
-
 void print(int *a, int size) {
     std::cout << a[0];
     for(int i=1; i < size; i++)
