@@ -5,6 +5,9 @@
 #include "helper.h"
 #include "insertion.h"
 #include "selection.h"
+#include "merge.h"
+#include "qsort.h"
+#include "heap.h"
 
 
 void time() {
