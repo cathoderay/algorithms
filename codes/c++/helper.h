@@ -25,8 +25,11 @@ void shuffle_array(int *a, int size) {
 
 
 double timeit(void (*sorter)(int *, int), int* a, int size) {
+    int b[size];
+
+    copy_array(b, a, size);
     clock_t time = clock();
-    sorter(a, size);
+    sorter(b, size);
     time = clock() - time;
     return (double)(time)/CLOCKS_PER_SEC;
 }

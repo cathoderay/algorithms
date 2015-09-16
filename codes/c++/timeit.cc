@@ -12,16 +12,20 @@
 
 void time() {
     for(int n = 10; n <= 100000; n+= 100){ 
-        int a[n], b[n];
+        int a[n];
 
         srand(time(NULL));
 
         shuffle_array(a, n);
-        copy_array(b, a, n);
 
         std::cout << n << ',';
+
         std::cout << timeit(insertion, a, n) << ',';
-        std::cout << timeit(selection, b, n) << '\n';
+        std::cout << timeit(selection, a, n) << ',';
+        std::cout << timeit(merge, a, n) << ',';
+        std::cout << timeit(qsort, a, n) << ',';
+        std::cout << timeit(heap, a, n) << '\n';
+
     }
 }
 
