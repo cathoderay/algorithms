@@ -2,6 +2,8 @@
 #include <time.h>
 #include <stdio.h>
 
+using namespace std;
+
 #include "helper.h"
 #include "insertion.h"
 #include "selection.h"
@@ -15,17 +17,14 @@ void time() {
         int a[n];
 
         srand(time(NULL));
-
         shuffle_array(a, n);
 
         std::cout << n << ',';
-
-        std::cout << timeit(insertion, a, n) << ',';
-        std::cout << timeit(selection, a, n) << ',';
-        std::cout << timeit(merge, a, n) << ',';
-        std::cout << timeit(qsort, a, n) << ',';
-        std::cout << timeit(heap, a, n) << '\n';
-
+        cout << timeit(insertion, a, n) << ',';
+        cout << timeit(selection, a, n) << ',';
+        cout << timeit(merge, a, n) << ',';
+        cout << timeit(qsort, a, n) << ',';
+        cout << timeit(heap, a, n) << '\n';
     }
 }
 
