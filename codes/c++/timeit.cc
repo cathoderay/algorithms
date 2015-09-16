@@ -13,11 +13,12 @@ using namespace std;
 
 
 void time() {
-    for(int n = 10; n <= 100000; n+= 100){ 
+    for(int n = 100; n <= 100000; n+= 100){
         int a[n];
 
         srand(time(NULL));
-        shuffle_array(a, n);
+        range(a, n);
+        shuffle(a, n);
 
         cout << n << ',';
         cout << timeit(insertion, a, n) << ',';
@@ -31,5 +32,6 @@ void time() {
 
 int main() {
     time();
+
     return 0;
 }
