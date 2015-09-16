@@ -19,7 +19,7 @@ void time() {
         srand(time(NULL));
         shuffle_array(a, n);
 
-        std::cout << n << ',';
+        cout << n << ',';
         cout << timeit(insertion, a, n) << ',';
         cout << timeit(selection, a, n) << ',';
         cout << timeit(merge, a, n) << ',';
