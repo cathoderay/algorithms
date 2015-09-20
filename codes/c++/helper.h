@@ -1,3 +1,6 @@
+#ifndef HELPER
+#define HELPER
+
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
@@ -40,6 +43,24 @@ void shuffle(int *a, int size) {
 }
 
 
+void randrept(int *a, int size, float perc) {
+    int range = int((1-perc)*size);
+    if (!range) range++; 
+
+    for(int i = 0; i < range; i++)
+        a[i] = i;
+    for(int i = range; i < size; i++)
+        a[i] = rand()%range;
+    shuffle(a, size);
+}
+
+
+void reverse(int *a, int size) {
+    for(int i = 0; i < size; i++)
+       a[i] = size - 1 - i;
+}
+
+
 double timeit(void (*sorter)(int *, int), int* a, int size) {
     int b[size];
     copy(b, a, size);
@@ -48,3 +69,5 @@ double timeit(void (*sorter)(int *, int), int* a, int size) {
     time = clock() - time;
     return (double)(time)/CLOCKS_PER_SEC;
 }
+
+#endif
