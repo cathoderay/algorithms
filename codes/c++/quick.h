@@ -1,12 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 
-void swapa(int *a, int *b) {
-    int t;
-    t = *a;
-    *a = *b;
-    *b = t;
-}
+#include "helper.h"
+
 
 int partition(int a[], int p, int r) {
     int x = a[r],
@@ -15,9 +11,9 @@ int partition(int a[], int p, int r) {
     for(int j = p; j < r; j++) 
         if (a[j] <= x) {
             i = i + 1;
-            swapa(&a[i], &a[j]);
+            swap(&a[i], &a[j]);
         } 
-    swapa(&a[i+1], &a[r]);
+    swap(&a[i+1], &a[r]);
     return i + 1;
 }
 

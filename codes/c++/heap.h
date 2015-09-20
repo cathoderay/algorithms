@@ -1,3 +1,6 @@
+#include "helper.h"
+
+
 int left(int i) { return 2*i + 1; }
 int right(int i) { return 2*i + 2; }
 
@@ -16,10 +19,7 @@ void max_heapify(int a[], int heapsize, int i) {
         largest = r;
     
     if (largest != i) {
-        int t;
-        t = a[i];
-        a[i] = a[largest];
-        a[largest] = t;
+        swap(&a[i], &a[largest]);
         max_heapify(a, heapsize, largest);
     }
 }
@@ -31,13 +31,10 @@ void build_max_heap(int a[], int size, int heapsize){
 }
 
 void heapsort(int a[], int size, int heapsize) {
-    int t;
     build_max_heap(a, size, heapsize);
     heapsize = size;
     for(int i = size - 1; i >= 0; i--) {
-        t = a[0];
-        a[0] = a[i];
-        a[i] = t;
+        swap(&a[0], &a[i]);
         heapsize--;
         max_heapify(a, heapsize, 0);
     }
