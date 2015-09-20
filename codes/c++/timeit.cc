@@ -8,7 +8,7 @@ using namespace std;
 #include "insertion.h"
 #include "selection.h"
 #include "merge.h"
-#include "qsort.h"
+#include "quick.h"
 #include "heap.h"
 
 
@@ -21,10 +21,10 @@ void time() {
         shuffle(a, n);
 
         cout << n << ',';
-        cout << timeit(insertion, a, n) << ',';
         cout << timeit(selection, a, n) << ',';
+        cout << timeit(insertion, a, n) << ',';
         cout << timeit(merge, a, n) << ',';
-        cout << timeit(qsort, a, n) << ',';
+        cout << timeit(quick, a, n) << ',';
         cout << timeit(heap, a, n) << '\n';
     }
 }
