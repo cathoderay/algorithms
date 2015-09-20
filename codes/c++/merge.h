@@ -2,10 +2,11 @@
 
 
 void combine(int a[], int s, int m, int e) {
-    int i, j;
-    int ls = m - s + 1;
-    int rs = e - m;
-    int l[ls + 1], r[rs + 1];
+    int i, j,
+        ls = m - s + 1,
+        rs = e - m,
+        l[ls + 1],
+        r[rs + 1];
 
     for(int i = 0; i < ls; i++)
         l[i] = a[s + i];
@@ -36,4 +37,3 @@ void mergesort(int a[], int s, int e) {
 void merge(int a[], int size) {
     mergesort(a, 0, size - 1);
 }
-

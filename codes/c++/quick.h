@@ -9,8 +9,8 @@ void swapa(int *a, int *b) {
 }
 
 int partition(int a[], int p, int r) {
-    int x = a[r];
-    int i = p - 1;
+    int x = a[r],
+        i = p - 1;
 
     for(int j = p; j < r; j++) 
         if (a[j] <= x) {

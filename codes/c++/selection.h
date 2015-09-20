@@ -10,4 +10,3 @@ void selection(int v[], int size) {
         v[i] = t;
     }
 }
-
