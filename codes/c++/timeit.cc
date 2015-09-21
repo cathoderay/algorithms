@@ -57,13 +57,12 @@ void usage() {
 
 
 int main(int argc, char *argv[]) {
-    if (argc == 1)
+    if (argc != 5) {
+        cout << "Invalid number of arguments.\n";
         usage();
-    else if (argc > 5) {
-        cout << "Invalid number of arguments.";
         exit(-1);
     }
-    else if (argc == 5)
+    else
         times(atoi(argv[1]), 
               atoi(argv[2]), 
               atoi(argv[3]), 
