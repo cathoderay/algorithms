@@ -1,5 +1,6 @@
-void insertion(int a[], int size) {
-    int k, i;
+void insertion_s(string a[], int size) {
+    string k;
+    int i;
     for(int j = 1; j < size; j++) {
         k = a[j];
         i = j - 1;

@@ -1,6 +1,5 @@
 #include "helper.h"
 
-
 int partition(int a[], int p, int r) {
     int x = a[r],
         i = p - 1;
