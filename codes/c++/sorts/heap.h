@@ -14,7 +14,6 @@ void max_heapify(int a[], int heapsize, int i) {
         largest = l;
     else
         largest = i;
-
     if (r < heapsize && a[r] > a[largest])
         largest = r;
     

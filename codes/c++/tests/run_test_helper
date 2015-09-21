@@ -1,0 +1,3 @@
+#!/bin/bash
+g++ test_helper.cc -o test_helper
+./test_helper

@@ -61,6 +61,22 @@ void reverse(int *a, int size) {
 }
 
 
+bool is_sorted(int *a, int size) {
+    for(int i = 1; i < size; i++)
+        if (a[i] < a[i-1])
+            return false;
+    return true;
+}
+
+
+double check_if_sorts(void (*sorter)(int *, int), int*a, int size) {
+    int b[size];
+    copy(b, a, size);
+    sorter(b, size);
+    return is_sorted(b, size);
+}
+
+
 double timeit(void (*sorter)(int *, int), int* a, int size) {
     int b[size];
     copy(b, a, size);
