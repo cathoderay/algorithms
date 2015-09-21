@@ -28,9 +28,10 @@ void generate_nums(int a[], int type, int n) {
     }
 }
 
-void times(int type, int step) {
+void times(int type, int start, int end, int step) {
+    srand(time(NULL));
     cout << "n,selection,insertion,merge,quick,heap\n";
-    for(int n = step; n <= 100000; n+= step){
+    for(int n = start; n <= end; n+= step){
         int a[n];
 
         generate_nums(a, type, n);
@@ -44,25 +45,29 @@ void times(int type, int step) {
     }
 }
 
+void usage() {
+    cout << "Usage: timeit TYPE START END STEP\n";
+    cout << "TYPE: \n\t0-random\n\t1-sorted\n\t2-reversed\n\t3-lot of rep.\n\t4-few rep.\n";
+    cout << "START: starts with inputs of size START\n";
+    cout << "END: ends with inputs of size END\n";
+    cout << "STEP: increase size of inputs by STEP\n";
+    cout << "e.g.: ./timeit 0 100 1000 100\n";
+    exit(-1);
+}
+
 
 int main(int argc, char *argv[]) {
-    if (argc == 1) {
-        cout << "Usage: timeit type [step]\n";
-        cout << "types: 0-random,1-sorted,2-reversed,3-lot of rep.,4-few rep.\n";
+    if (argc == 1)
+        usage();
+    else if (argc > 5) {
+        cout << "Invalid number of arguments.";
         exit(-1);
     }
-    else {
-        int arg = atoi(argv[1]);
-        if (arg < 0 || arg > 4) {
-            cout << "Invalid argument.";
-            exit(-1);
-        }
-        srand(time(NULL));
-        if (argc == 3)
-            times(arg, atoi(argv[2]));
-        else
-            times(arg, 10000);
-    }
+    else if (argc == 5)
+        times(atoi(argv[1]), 
+              atoi(argv[2]), 
+              atoi(argv[3]), 
+              atoi(argv[4]));
 
     return 0;
 }
