@@ -1,0 +1,3 @@
+#!/bin/bash
+g++ sorts_tests.cc -o sorts_tests 
+./sorts_tests

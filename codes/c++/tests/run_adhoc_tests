@@ -1,0 +1,3 @@
+#!/bin/bash
+g++ adhoc_tests.cc -o adhoc_tests
+./adhoc_tests

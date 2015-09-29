@@ -10,38 +10,42 @@ using namespace std;
 void generate_nums(int a[], int type, int n) {
     switch (type) {
         case 0: //random sequences
-            range(a, n);
-            shuffle(a, n);
+            range_i(a, n);
+            shuffle_i(a, n);
             break;
         case 1: //sorted
-            range(a, n);
+            range_i(a, n);
             break;
         case 2: //reversed
-            reverse(a, n);
+            reverse_i(a, n);
             break;
         case 3: //lot of repetitions
-            randrept(a, n, 0.8);
+            randrept_i(a, n, 0.8);
             break;
         case 4: //few repetitions
-            randrept(a, n, 0.2);
+            randrept_i(a, n, 0.2);
             break;
     }
 }
 
+
 void times(int type, int start, int end, int step) {
     srand(time(NULL));
-    cout << "n,selection,insertion,merge,quick,heap\n";
+    cout << "n,selection,insertion,heap,merge,merge_insertion,quick,quick_insertion,quick_insertion_end\n";
     for(int n = start; n <= end; n+= step){
         int a[n];
 
         generate_nums(a, type, n);
-
+        
         cout << n << ',';
-        cout << timeit(selection, a, n) << ',';
-        cout << timeit(insertion, a, n) << ',';
-        cout << timeit(merge, a, n) << ',';
-        cout << timeit(quick, a, n) << ',';
-        cout << timeit(heap, a, n) << '\n';
+        cout << timeit_i(selection, a, n) << ',';
+        cout << timeit_i(insertion, a, n) << ',';
+        cout << timeit_i(heap, a, n) << ',';
+        cout << timeit_i(merge, a, n) << ',';
+        cout << timeit_i(merge_insertion, a, n) << ',';
+        cout << timeit_i(quick, a, n) << ',';
+        cout << timeit_i(quick_insertion, a, n) << ',';
+        cout << timeit_i(quick_insertion_end, a, n) << '\n';
     }
 }
 
@@ -60,7 +64,6 @@ int main(int argc, char *argv[]) {
     if (argc != 5) {
         cout << "Invalid number of arguments.\n";
         usage();
-        exit(-1);
     }
     else
         times(atoi(argv[1]), 

@@ -1,5 +1,5 @@
-template<typename T>
-void combine(T a[], T t[], int s, int m, int e) {
+
+void combine1_i(int a[], int t[], int s, int m, int e) {
     for(int k = s; k <= e; k++)
         t[k] = a[k];
     
@@ -17,18 +17,17 @@ void combine(T a[], T t[], int s, int m, int e) {
 }
 
 
-template<typename T>
-void mergesort(T a[], T t[], int s, int e) {
+void mergesort1_i(int a[], int t[], int s, int e) {
     if (s >= e) return;
 
     int m = s + (e - s)/2;
-    mergesort(a, t,  s, m);
-    mergesort(a, t, m + 1, e);
-    combine(a, t, s, m, e);
+    mergesort1_i(a, t,  s, m);
+    mergesort1_i(a, t, m + 1, e);
+    combine1_i(a, t, s, m, e);
 }
 
-template<typename T>
-void merge(T a[], int size) {
-    T t[size];
-    mergesort(a, t, 0, size - 1);
+
+void merge1_i(int a[], int size) {
+    int t[size];
+    mergesort1_i(a, t, 0, size - 1);
 }

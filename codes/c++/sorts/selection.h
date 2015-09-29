@@ -1,12 +1,13 @@
 #include "helper.h"
 
-void selection(int v[], int size) {
+template<typename T>
+void selection(T a[], int size) {
     int k;
     for(int i = 0; i < size; i++) {
         k = i;
         for(int j = i + 1; j < size; j++)
-            if (v[j] < v[k])
+            if (a[j] < a[k])
                 k = j;
-        swap(&v[k], &v[i]);
+        swap(&a[k], &a[i]);
     }
 }

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+g++ timeit.cc -o timeit -g

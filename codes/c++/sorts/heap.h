@@ -1,45 +1,43 @@
 #include "helper.h"
 
-
 int left(int i) { return 2*i + 1; }
 int right(int i) { return 2*i + 2; }
 
-
-void max_heapify(int a[], int heapsize, int i) {
+template<typename T>
+void max_heapify(T a[], int hsize, int i) {
     int l = left(i), 
         r = right(i),
-        largest;
+        max;
     
-    if (l < heapsize && a[l] > a[i])
-        largest = l;
-    else
-        largest = i;
-    if (r < heapsize && a[r] > a[largest])
-        largest = r;
+    if (l < hsize && a[l] > a[i]) max = l;
+    else max = i;
+    if (r < hsize && a[r] > a[max]) max = r;
     
-    if (largest != i) {
-        swap(&a[i], &a[largest]);
-        max_heapify(a, heapsize, largest);
+    if (max != i) {
+        swap(&a[i], &a[max]);
+        max_heapify(a, hsize, max);
     }
 }
 
-void build_max_heap(int a[], int size, int heapsize){
-    heapsize = size;
-    for(int i = (heapsize-1)/2; i >= 0; i--)
-        max_heapify(a, heapsize, i);
+template<typename T>
+void build_max_heap(T a[], int size, int hsize){
+    hsize = size;
+    for(int i = (hsize-1)/2; i >= 0; i--)
+        max_heapify(a, hsize, i);
 }
 
-void heapsort(int a[], int size, int heapsize) {
-    build_max_heap(a, size, heapsize);
-    heapsize = size;
+template<typename T>
+void heapsort(T a[], int size, int hsize) {
+    build_max_heap(a, size, hsize);
+    hsize = size;
     for(int i = size - 1; i >= 0; i--) {
         swap(&a[0], &a[i]);
-        heapsize--;
-        max_heapify(a, heapsize, 0);
+        hsize--;
+        max_heapify(a, hsize, 0);
     }
 }
 
-
-void heap(int a[], int size) {
+template<typename T>
+void heap(T a[], int size) {
     heapsort(a, size, 0);
 }

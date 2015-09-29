@@ -1,7 +1,10 @@
 #include "helper.h"
 
+#define THRESHOLD_E 15
+
 template<typename T>
-int partition(T a[], int p, int r) {
+int partition_ins_end(T a[], int p, int r) {
+    //randomizing pivot
     int xp = p + rand() % (r - p + 1);
     swap(&a[xp], &a[p]);
 
@@ -9,6 +12,7 @@ int partition(T a[], int p, int r) {
         j = r + 1;
     T   v = a[p];
 
+    //Hoare
     while(true){
         while(a[++i] < v)
             if (i == r) break;
@@ -22,20 +26,25 @@ int partition(T a[], int p, int r) {
     }
     swap(&a[p], &a[j]);
     return j;
-
 }
 
 template<typename T>
-void quicksort(T a[], int p, int r) {
+void quicksort_ins_end(T a[], int p, int r) {
     int q;
+    int n = r - p + 1;
+
+    //skipping to solve later
+    if (n <= THRESHOLD_E)
+        return;
     if (p < r) {
-        q = partition(a, p, r);
-        quicksort(a, p, q - 1);
-        quicksort(a, q + 1, r);
+        q = partition_ins_end(a, p, r);
+        quicksort_ins_end(a, p, q - 1);
+        quicksort_ins_end(a, q + 1, r);
     }
 }
 
 template<typename T>
-void quick(T a[], int size) {
-    quicksort(a, 0, size - 1);
+void quick_insertion_end(T a[], int size) {
+    quicksort_ins_end(a, 0, size - 1);
+    insertion(a, size);
 }
