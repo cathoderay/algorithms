@@ -1,5 +1,0 @@
-Things to remember when writing the essay...
-
-* python3 is slower than python2
-* insertion sort is slower than selection sort in python2 (in python3 it is reversed). All for the same implementations. For evidences, run "python time.py" and "python3 time.py"
-
