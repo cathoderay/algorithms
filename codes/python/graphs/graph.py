@@ -1,3 +1,6 @@
+""" Run it like:
+    $ python graph.py < inputs/map.txt
+"""
 
 import sys
 from pprint import pprint
@@ -51,6 +54,11 @@ class Graph:
     def edges(self):
         return [e for k, v in self.adj.iteritems() for e in v]
 
+    def weight(self, a, b):
+        for edge in self.adj[a]:
+            if edge.b == b:
+                return edge.weight
+
     def build_graph(self):
         for line in sys.stdin:
             a, b, w = line.split()
@@ -67,10 +75,7 @@ class Graph:
         return True
 
 
-
 if __name__ == '__main__':
-    """ Run it like:
-     $ python graph.py < inputs/graph.in """
 
     G = Graph()
     G.build_graph()

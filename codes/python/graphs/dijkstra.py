@@ -1,3 +1,7 @@
+""" Run it like:
+    $ python dijkstra.py < inputs/map.txt
+"""
+
 import sys
 from graph import Graph
 
@@ -10,6 +14,7 @@ def dijkstra(G, s):
     S = set()
     Q = G.vertices()
 
+    # invariant: Q = V - S
     while Q:
         a = min(Q, key=lambda v: d[v])
         Q.remove(a)
@@ -35,19 +40,20 @@ def path(p, s, t):
 if __name__ == '__main__':
     G = Graph()
     G.build_graph()
+    print dijkstra(G, 1)
 
-    d, p = dijkstra(G, 2646)
-    print path(p, 1, 2646)
-
-    d, p = dijkstra(G, 1)
-    print path(p, 1, 2646)
+    # Examples of how it was used
+    #s = 2646
+    #d, p = dijkstra(G, s)
 
     #edges = []
     #for v in G.vertices():
-    #    if v != 104:
-    #        edges += path(p, 2646, v)
+    #    if v != s:
+    #        edges += path(p, s, v)
     #edges = set(edges)
+    #print edges
 
+    # EPS file
     #for a, b in edges:
     #    print "P%s P%s edge" % (a, b)
 
@@ -58,6 +64,8 @@ if __name__ == '__main__':
     #for a, b in edges:
     #    for k in G.adj[a]:
     #        if k.b == b:
+    #            print "adding cost of (%s, %s)" % (a, b)
+    #            print k.weight
     #            cost += k.weight
     #            break
     #print cost

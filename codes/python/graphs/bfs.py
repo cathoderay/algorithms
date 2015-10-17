@@ -1,3 +1,6 @@
+""" Run it like:
+    $ python bfs.py < inputs/map.txt
+"""
 
 from Queue import Queue
 
@@ -8,9 +11,9 @@ def bfs(G, s):
     # initialization
     d = [-1]*(G.nv + 1)
     m = [False]*(G.nv + 1)
-    p = [-1]*(G.nv + 1)
+    p = [-1]*(G.nv + 1) 
 
-    # visit source
+    # visiting s
     m[s] = True
     d[s] = 0
     Q = Queue()
@@ -30,8 +33,6 @@ def bfs(G, s):
 
 
 if __name__ == '__main__':
-    """ Run it like:
-    $ python bfs.py < inputs/graph.in"""
 
     G = graph.Graph()
     G.build_graph()

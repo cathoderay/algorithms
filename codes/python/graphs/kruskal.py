@@ -1,3 +1,6 @@
+""" Run it like:
+    $ python kruskal.py < inputs/map.txt
+"""
 
 from timeit import timeit
 from pprint import pprint
@@ -25,9 +28,6 @@ def kruskal(G, UF=QUW):
  
 
 if __name__ == '__main__':
-    """ Run it like:
-    $ python kruskal.py < inputs/map.txt """
-
     G = Graph()
     G.build_graph()
 
