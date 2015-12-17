@@ -15,8 +15,9 @@ def compare(P0, B, C, to_ignore):
 
 
 def graham(points, cutoff=False):
-    #removing duplicate points
     if cutoff: points = interior_elimination(points)
+
+    #removing duplicate points
     pts = list(set(points)) 
 
     P0 = min(pts, key=lambda p: (p[1], p[0]))
