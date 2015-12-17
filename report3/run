@@ -1,0 +1,3 @@
+#!/bin/bash
+pdflatex trabalho.tex
+gnome-open trabalho.pdf
