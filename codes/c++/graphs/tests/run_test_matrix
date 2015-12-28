@@ -1,4 +1,0 @@
-#!/bin/bash
-g++ test_matrix.cc -g -o test_matrix
-./test_matrix
-rm test_matrix
